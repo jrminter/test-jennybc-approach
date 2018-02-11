@@ -1,7 +1,7 @@
 ---
 title: "Plot MSA Spectra"
 author: "John Minter"
-date: "2018-02-10"
+date: "Created: 2018-02-01 Last Modified: 2018-01-10"
 output:
   html_document:
     keep_md: true
