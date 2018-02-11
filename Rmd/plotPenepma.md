@@ -36,71 +36,15 @@ library(ggplot2)
 
 df <- penepmaSpcToDF(spcPath)
 rownames(df) <- c()
-
-pander(head(df))
 ```
 
-
-----------------------
- keV     pd      unc  
------- ------- -------
- 0.09   4368    690.2 
-
- 0.11   1164    107.2 
-
- 0.13   910.3   57.58 
-
- 0.15   1016    151.6 
-
- 0.17    961    96.13 
-
- 0.19   1002    73.51 
-----------------------
-and the tail
+Let's see the columns in the dataframe:
 
 
 ```r
-pander(tail(df))
+print(names(df))
+#> [1] "keV" "pd"  "unc"
 ```
-
-
----------------------------------
- &nbsp;     keV     pd      unc  
---------- ------- ------- -------
- **741**   14.89   1.667   1.581 
-
- **742**   14.91    2.5    1.936 
-
- **743**   14.93   2.333   1.871 
-
- **744**   14.95     1     1.225 
-
- **745**   14.97   1.333   1.414 
-
- **746**   14.99     1     1.225 
----------------------------------
-
-
-```r
-pander(summary(df))
-```
-
-
-----------------------------------------------------
-      keV               pd                unc       
----------------- ----------------- -----------------
- Min.  : 0.090      Min.  : 1.0      Min.  : 1.225  
-
- 1st Qu.: 3.815    1st Qu.: 76.7    1st Qu.: 10.723 
-
- Median : 7.540   Median : 257.8    Median : 19.759 
-
-  Mean : 7.540     Mean : 2802.8     Mean : 75.231  
-
- 3rd Qu.:11.265   3rd Qu.: 902.8    3rd Qu.: 39.648 
-
- Max.  :14.990    Max.  :700356.1   Max.  :9636.167 
-----------------------------------------------------
 
 
 Now we are ready to plot the spectrum. There is a very large dynamic
@@ -129,4 +73,4 @@ plt <- ggplot(df, aes(x = keV, y = pd)) +
 print(plt)
 ```
 
-![](plotPenepma_files/figure-html/unnamed-chunk-5-1.png)<!-- -->
+![](plotPenepma_files/figure-html/unnamed-chunk-4-1.png)<!-- -->

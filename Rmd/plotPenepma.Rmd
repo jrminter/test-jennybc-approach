@@ -38,17 +38,12 @@ library(ggplot2)
 
 df <- penepmaSpcToDF(spcPath)
 rownames(df) <- c()
-
-pander(head(df))
 ```
-and the tail
 
-```{r, message=FALSE}
-pander(tail(df))
-```
+Let's see the columns in the dataframe:
 
 ```{r}
-pander(summary(df))
+print(names(df))
 ```
 
 

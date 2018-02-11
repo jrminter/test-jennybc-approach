@@ -5,8 +5,8 @@ keeping the markdown files knit from .Rmd files and uploading them
 to the repository **instead of** .html files. By choosing the
 `github_md` variant of markdown, Jenny claimed the rendering was
 more helpful for those who visit the repository. Here I test that
-idea. I set this up with tow of the vignettes from my `rEDS`
-package.
+idea. I set this up with two of the vignettes from my `rEDS`
+package. I think Jenny is correct!
 
 [Plotting EDS spectra](Rmd/plotSpectra.md)
 
