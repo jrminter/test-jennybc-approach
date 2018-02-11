@@ -1,7 +1,7 @@
 ---
 title: "Plot Penepma Spectra"
 author: "John Minter"
-date: "Created: 2018-02-01 Last Modified: 2018-01-10"
+date: "Created: 2018-02-01 Last Modified: 2018-02-13"
 output:
   html_document:
     keep_md: true
@@ -22,27 +22,29 @@ processing.
 
 ## Load a spectrum
 
-First we get our exemplar file.
-
-```{r}
-spcPath <- system.file("extdata", "pe-spect-01.dat", package = "rEDS")
-spcPath
-```
-
-Then we create an R dataframe using the `penepmaSpcToDF` function.
+First we load the libraries we will need ans get our exemplar file.
 
 ```{r, message=FALSE}
 library(rEDS)
 library(pander)
 library(ggplot2)
-
-df <- penepmaSpcToDF(spcPath)
-rownames(df) <- c()
+spcPath <- system.file("extdata", "pe-spect-01.dat", package = "rEDS")
+spcPath
 ```
 
-Let's see the columns in the dataframe:
+Then want to create an R dataframe using the `penepmaSpcToDF` function.
+To see the help page for the function, type this in the R console:
 
-```{r}
+```
+??rEDS::penepmaSpcToDF
+```
+
+Now we create the dataframe. Let's also print out the column names of
+the dataframe.
+
+```{r, message=FALSE}
+df <- penepmaSpcToDF(spcPath)
+rownames(df) <- c()
 print(names(df))
 ```
 

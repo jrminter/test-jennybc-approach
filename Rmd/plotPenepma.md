@@ -1,7 +1,7 @@
 ---
 title: "Plot Penepma Spectra"
 author: "John Minter"
-date: "Created: 2018-02-01 Last Modified: 2018-01-10"
+date: "Created: 2018-02-01 Last Modified: 2018-02-13"
 output:
   html_document:
     keep_md: true
@@ -17,31 +17,32 @@ processing.
 
 ## Load a spectrum
 
-First we get our exemplar file.
-
-
-```r
-spcPath <- system.file("extdata", "pe-spect-01.dat", package = "rEDS")
-spcPath
-#> [1] "/Library/Frameworks/R.framework/Versions/3.4/Resources/library/rEDS/extdata/pe-spect-01.dat"
-```
-
-Then we create an R dataframe using the `penepmaSpcToDF` function.
+First we load the libraries we will need ans get our exemplar file.
 
 
 ```r
 library(rEDS)
 library(pander)
 library(ggplot2)
-
-df <- penepmaSpcToDF(spcPath)
-rownames(df) <- c()
+spcPath <- system.file("extdata", "pe-spect-01.dat", package = "rEDS")
+spcPath
+#> [1] "/Library/Frameworks/R.framework/Versions/3.4/Resources/library/rEDS/extdata/pe-spect-01.dat"
 ```
 
-Let's see the columns in the dataframe:
+Then want to create an R dataframe using the `penepmaSpcToDF` function.
+To see the help page for the function, type this in the R console:
+
+```
+??rEDS::penepmaSpcToDF
+```
+
+Now we create the dataframe. Let's also print out the column names of
+the dataframe.
 
 
 ```r
+df <- penepmaSpcToDF(spcPath)
+rownames(df) <- c()
 print(names(df))
 #> [1] "keV" "pd"  "unc"
 ```
@@ -73,4 +74,4 @@ plt <- ggplot(df, aes(x = keV, y = pd)) +
 print(plt)
 ```
 
-![](plotPenepma_files/figure-html/unnamed-chunk-4-1.png)<!-- -->
+![](plotPenepma_files/figure-html/unnamed-chunk-3-1.png)<!-- -->
