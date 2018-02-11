@@ -1,0 +1,52 @@
+---
+title: "Plot MSA Spectra"
+author: "John Minter"
+date: "`r Sys.Date()`"
+output:
+  html_document:
+    keep_md: true
+    variant: github_md
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+## Load a spectrum
+
+First we get our exemplar **.msa** format spectrum file.
+
+```{r}
+library(rEDS)
+fi <- system.file("extdata", "Benitoite.msa", package = "rEDS")
+print(fi)
+```
+
+Then we create a Spectrum object using the `SingleMSA` function.
+
+```{r, message=FALSE}
+spc <- singleMSA(fi, probecur=2.5)
+```
+
+and now we can plot the spectrum.
+
+```{r, fig.width=7}
+plot(spc, maxEnergy=10000, doLog=TRUE)
+```
+
+We can also create a ggplot with a linear intensity scale
+
+```{r, fig.width=7}
+plt <- ggplotSpectrumLinY(fi, "Benitoite", 0.2, 7.0, 1.0, 2.5)
+print(plt)
+```
+
+and with one with a logarithmic intensity
+
+```{r, fig.width=7}
+plt <-ggplotSpectrumLogY(fi, "Benitoite", 0.2, 7.0, 1.0, 2.5)
+print(plt)
+```
